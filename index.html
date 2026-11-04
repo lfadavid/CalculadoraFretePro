@@ -35,8 +35,14 @@
 @media(max-width:950px){.quote-grid{grid-template-columns:minmax(0,1fr)}.result-panel{margin-top:0}.routes-grid{grid-template-columns:1fr}.routes-panel{max-width:none}.hero{padding-bottom:90px}.routes-results{padding:22px}}
 @media(max-width:700px){.container{padding:0 16px}.topbar-inner{align-items:flex-start;flex-direction:column;padding-top:14px;padding-bottom:12px;gap:12px}.nav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.nav-btn{padding:10px 8px;font-size:12px;line-height:1.25;white-space:normal;min-height:49px}.nav-btn .nav-mark{display:none}.nav-btn.logout{grid-column:1/-1;min-height:40px}.hero{padding:27px 0 92px}.hero h1{font-size:31px}.hero p{font-size:13px}.main-stage{margin-top:-64px}.panel{padding:20px 18px;border-radius:15px}.result-panel{padding:0}.mode-grid{grid-template-columns:1fr 1fr;gap:8px}.mode-btn{min-height:77px;padding:11px;gap:8px}.mode-btn small{font-size:10px}.mode-btn strong{font-size:12px}.mode-icon{font-size:17px;min-width:19px}.form-grid,.form-grid.three{grid-template-columns:1fr;gap:13px}.result-head,.result-body{padding:22px 19px}.condition-grid{grid-template-columns:1fr}.conditions-intro{align-items:flex-start}.routes-table-wrap{display:none}.route-mobile{display:block}}
 @media(max-width:390px){.container{padding:0 12px}.brand-title{font-size:22px}.brand-logo{width:41px;height:45px}.topbar-inner{padding-top:13px}.nav-btn{font-size:11px;padding:9px 6px}.hero h1{font-size:28px}.panel{padding:18px 14px}.mode-grid{grid-template-columns:1fr}.mode-btn{min-height:58px}.result-head,.result-body{padding:19px 16px}.result-actions{grid-template-columns:1fr}.login-card{padding:26px 22px}.route-item dl div{grid-template-columns:92px minmax(0,1fr)}.foot{font-size:11px}}
+@page freteproEspecial{
+ size:A4;
+ margin:16mm 16mm 17mm;
+ @bottom-right{content:"Página " counter(page) " de " counter(pages);font:8pt Arial,Helvetica,sans-serif;color:#607c92;}
+}
 @media print{
  @page{size:A4;margin:16mm 16mm 15mm}
+ #printSheet.special-compact-print{page:freteproEspecial}
  *,*::before,*::after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
  html,body{height:auto!important;overflow:visible!important;background:#fff!important;color:#17334d!important}
  body>.login-view,body>.app-view,body>.welcome-popup{display:none!important}
@@ -60,12 +66,21 @@
  .print-total-bar strong{font-size:17pt;color:#fff!important;white-space:nowrap}
  .print-note{margin:0 0 6px;color:#5e798d;font-size:8.7pt;line-height:1.55;overflow-wrap:anywhere}
  .print-foot{font-size:8pt;color:#8699aa;text-align:center;margin-top:24px;border-top:1px solid #d5e3ea;padding-top:10px}
- #printSheet.special-compact-print .print-meta{margin-bottom:16px}
- #printSheet.special-compact-print .print-section{margin:16px 0 9px}
- #printSheet.special-compact-print .print-detail-grid{row-gap:8px}
- #printSheet.special-compact-print .print-price-table td{padding:6px 0}
- #printSheet.special-compact-print .print-total-bar{padding:11px 13px;margin-top:9px;margin-bottom:11px}
- #printSheet.special-compact-print .print-foot{margin-top:17px}
+ #printSheet.special-compact-print .print-meta{margin-bottom:10px}
+ #printSheet.special-compact-print .print-section{margin:11px 0 7px}
+ #printSheet.special-compact-print .print-detail-grid{row-gap:5px}
+ #printSheet.special-compact-print .print-price-table td{padding:4px 0}
+ #printSheet.special-compact-print .print-total-bar{padding:9px 13px;margin-top:6px;margin-bottom:7px}
+ #printSheet.special-compact-print .print-foot{margin-top:9px;padding-top:7px}
+ #printSheet.special-compact-print .special-header{position:relative;display:flex;justify-content:center;align-items:center;min-height:85px;padding:0 0 9px;margin-bottom:7px}
+ #printSheet.special-compact-print .special-header .print-logo{position:absolute;left:0;top:8px;width:54px;height:54px}
+ #printSheet.special-compact-print .print-company-info{width:100%;text-align:center;padding:0 10px}
+ #printSheet.special-compact-print .print-company-info h1{font-size:12.2pt;font-weight:800;line-height:1.2;letter-spacing:-.3px;margin:0 0 4px}
+ #printSheet.special-compact-print .print-company-info p{font-size:8.6pt;line-height:1.35;margin:1px 0;color:#465f72}
+ #printSheet.special-compact-print .print-company-info .print-proposal-title{font-size:10.2pt;font-weight:750;margin-top:7px;color:#0a7581}
+ #printSheet.special-compact-print .print-signatures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:18px 0 0;break-inside:avoid}
+ #printSheet.special-compact-print .print-signature{padding-top:12px;min-width:0}
+ #printSheet.special-compact-print .print-signature span{display:block;border-top:1px solid #8da6b7;text-align:center;padding-top:7px;color:#506b80;font-size:8.3pt;line-height:1.35}
  .print-section,.print-total-bar,.print-header,.print-meta{break-inside:avoid}
 }
 
@@ -187,6 +202,63 @@
   .btn,.nav-btn,.mode-btn,.segment,.field input,.field select{transition:none}
 }
 
+
+/* Refinamento visual final (exclusivo da tela; impressão e regras de cálculo intactas). */
+@media screen {
+  html{-webkit-text-size-adjust:100%}
+  .panel,.condition-card,.route-item,.login-card{max-width:100%}
+  .field,.filter-field{min-width:0}
+  .field input,.field select,.filter-field input,.filter-field select{max-width:100%}
+  .field label,.transfer-field legend{line-height:1.45}
+  .field .help,.route-small,.conditions-footer,.pagination p{line-height:1.55}
+  .btn,.mode-btn,.segment,.nav-btn,.transfer-choice{font-weight:740}
+  .btn:focus-visible,.nav-btn:focus-visible,.mode-btn:focus-visible,.segment:focus-visible,
+  .suggestions button:focus-visible,.transfer-choice:focus-within{
+    outline:3px solid #68c9cf;outline-offset:2px
+  }
+  .btn:active,.mode-btn:active,.segment:active,.nav-btn:active{transform:translateY(1px)}
+  .result-panel,.result-body,.result-head{min-width:0}
+  .result-head h2{line-height:1.35;overflow-wrap:anywhere}
+  .result-total{overflow-wrap:normal;word-break:normal;font-variant-numeric:tabular-nums}
+  .price-line{
+    display:grid;grid-template-columns:minmax(0,1fr) max-content;
+    align-items:start;column-gap:12px;row-gap:4px
+  }
+  .price-line span{min-width:0;max-width:100%;overflow-wrap:break-word;line-height:1.5}
+  .price-line strong{
+    max-width:none;min-width:0;white-space:nowrap;
+    overflow-wrap:normal;word-break:normal;line-height:1.5;
+    font-variant-numeric:tabular-nums
+  }
+  .result-meta{line-height:1.65;overflow-wrap:anywhere}
+  .result-foot{font-size:12px;line-height:1.6}
+  .optional summary,.form-panel details:not(.optional)>summary{border-radius:7px}
+  .stat{min-width:0}
+  .stat span,.conditions-count{font-size:13px;line-height:1.45}
+  .route-item dt{line-height:1.45}
+  .condition-card h3{overflow-wrap:anywhere}
+}
+@media screen and (max-width:700px){
+  .form-grid,.form-grid.three{row-gap:16px}
+  .nav-btn{min-height:50px}
+  .field input,.field select,.filter-field input,.filter-field select{border-radius:10px}
+  .result-body{padding-top:20px;padding-bottom:22px}
+  .price-line{font-size:13.5px;padding:9px 0}
+  .price-line strong{font-size:13.5px}
+  .price-line.grand strong{font-size:19px}
+  .result-meta{font-size:12.5px;padding:14px 12px}
+  .route-status{line-height:1.6}
+  .foot{font-size:12px}
+}
+@media screen and (max-width:359px){
+  .price-line.grand{grid-template-columns:minmax(0,1fr);row-gap:3px}
+  .price-line.grand strong{text-align:left}
+  .price-line:not(.grand){column-gap:8px}
+  .price-line:not(.grand) span{font-size:12.5px}
+  .price-line:not(.grand) strong{font-size:12.5px}
+  .result-actions .btn{min-height:50px}
+  .condition-card li{line-height:1.6}
+}
 </style>
 </head>
 <body>
@@ -224,8 +296,13 @@
       <div class="field"><label for="origin">Origem</label><select id="origin"><option value="">Selecione a origem</option></select></div>
       <div class="field"><label for="destInput">Cidade, região ou destino</label><div class="autocomplete"><input id="destInput" type="text" placeholder="Digite e escolha uma sugestão" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="destSuggestions"><div id="destSuggestions" class="suggestions hidden" role="listbox"></div></div><span class="help">Digite e selecione uma sugestão para confirmar a rota.</span></div>
     </div><div id="routeStatus" class="route-status hidden" role="status"></div></div>
-    <div id="specialFields" class="hidden"><div class="form-grid">
-       <div class="field"><label for="km">Distância do frete especial (km)</label><select id="km" aria-label="Faixa de distância do frete especial"><option value="">Selecione a faixa de quilometragem</option>
+     <div id="specialFields" class="hidden">
+      <div class="form-grid special-city-fields">
+       <div class="field"><label for="specialOrigin">Origem</label><input id="specialOrigin" type="text" maxlength="120" autocomplete="off" placeholder="Digite a cidade de origem"><span class="help">Cidade de origem informada na proposta de Frete Especial.</span></div>
+       <div class="field"><label for="specialDestination">Destino</label><input id="specialDestination" type="text" maxlength="120" autocomplete="off" placeholder="Digite a cidade de destino"><span class="help">Cidade de destino informada na proposta de Frete Especial.</span></div>
+      </div>
+      <div class="form-grid special-km-fields">
+        <div class="field"><label for="km">Distância do frete especial (km)</label><select id="km" aria-label="Faixa de distância do frete especial"><option value="">Selecione a faixa de quilometragem</option>
         <option value="0 a 100">0 a 100</option><option value="101 a 150">101 a 150</option><option value="151 a 200">151 a 200</option><option value="201 a 250">201 a 250</option><option value="251 a 300">251 a 300</option><option value="301 a 350">301 a 350</option><option value="351 a 400">351 a 400</option><option value="401 a 450">401 a 450</option><option value="451 a 500">451 a 500</option></select><span class="help">Escolha a faixa de distância conforme a tabela de frete especial.</span></div>
        <fieldset class="field transfer-field"><legend>Transferência + Especial</legend><div class="transfer-choices" role="radiogroup" aria-label="Transferência mais frete especial"><label class="transfer-choice"><input type="radio" id="transferYes" name="transferSpecial" value="yes"> Sim</label><label class="transfer-choice"><input type="radio" id="transferNo" name="transferSpecial" value="no" checked> Não</label></div><span class="help">Sim: adiciona a transferência RS0186 (Resende → Suzano) ao frete da faixa escolhida.</span></fieldset>
       </div></div>
@@ -462,8 +539,8 @@ function calculate(){
  const docs=qty===null?1:qty;
  const declared=nf||0;const fee=(rec.fee||0)*docs;const adv=declared*((rec.adv||0)/100);
  const subtotal=base+fee+adv;const total=icms===null?subtotal:(subtotal/(1-icms/100));const icmsAmount=total-subtotal;
- const origin=special?(withTransfer?'Resende / RJ (via Suzano / SP)':'Cotralti Log / SP'):state.selection.rec.origin+' / '+state.selection.rec.originUf;
- const destination=special?`Diversos / SP · ${rec.km} km`:state.selection.name+' / '+(state.selection.city?state.selection.city.uf:state.selection.rec.uf);
+ const origin=special?($('specialOrigin').value.trim()||'Não informada'):state.selection.rec.origin+' / '+state.selection.rec.originUf;
+ const destination=special?($('specialDestination').value.trim()||'Não informado'):state.selection.name+' / '+(state.selection.city?state.selection.city.uf:state.selection.rec.uf);
  const agenda=special?null:getAgenda(state.selection);
  const notes=[];
  if(state.mode==='technical')notes.push('Regra percentual provisória: condição 5.1 pode limitar o valor conforme frete especial e veículo; validar com a Cotralti.');
@@ -494,32 +571,37 @@ function printQuote(){
  const logoSrc=document.querySelector('#loginView .brand-logo').src;
  const pair=(label,value)=>`<div class="print-detail"><span class="print-key">${esc(label)}</span><span class="print-value">${esc(value)}</span></div>`;
  const title=q.mode==='dedicated'&&q.dedtype==='distance'?'Frete especial / km':labelMode[q.mode];
+ const specialPrint=q.km!==null;
  const headerData=[
-  ['Modalidade',title],['Origem e destino',`${q.origin} → ${q.destination}`],
+  ['Modalidade',title],
+  ...(specialPrint?[['Origem',q.origin],['Destino',q.destination]]:[['Origem e destino',`${q.origin} → ${q.destination}`]]),
   ['Código da rota',q.record.code||'Não informado'],
-  ['Região / faixa',q.dedtype==='distance'?`${q.record.km} km`:(q.record.dest||'Não informado')],
+  ...(!specialPrint?[['Região / faixa',q.record.dest||'Não informado']]:[]),
   ['Peso da carga',q.w===null?'Não informado':numText(q.w)+' kg'],
-  ['Lead time',q.agenda&&q.agenda.lead!=null?q.agenda.lead+' dia(s)':q.term||'Não informado'],
-  ['Dias de entrega',q.agenda&&q.agenda.days?q.agenda.days:'Não informado'],
   ['Valor NF-e',money(q.declared)],
   ['Qtd. NF-e',String(q.docs)]
  ];
  if(q.vehicleName)headerData.push(['Tipo de veículo',q.vehicleName]);
- if(q.km!==null){headerData.push(['Faixa de distância',q.km+' km']);headerData.push(['Transferência + Especial',q.withTransfer?'Sim':'Não']);}
+ if(specialPrint)headerData.push(['Transferência + Especial',q.withTransfer?'Sim':'Não']);
  const prices=[
-  ...(q.km!==null?[[`Frete do raio (${q.km} km)`,money(q.radiusFare)],['Transferência RS0186',money(q.transferFare)],['Soma do raio + transferência',money(q.base)]]:[['Frete base',money(q.base)]]),
+  ...(specialPrint?[['Valor do Frete Especial',money(q.radiusFare)],['Valor da Transferência RS0186',money(q.transferFare)],['Total Frete Especial + Transferência',money(q.base)]]:[['Frete base',money(q.base)]]),
   [`Taxas por ${q.docs} NF-e`,money(q.fee)],
   ['ADV',money(q.adv)],
   ['Subtotal antes do ICMS',money(q.subtotal)],
   [q.icmsRate===null?'ICMS':`ICMS (${numText(q.icmsRate)}% por dentro)`,q.icmsRate===null?'Não incluído':money(q.icms)]
  ];
- const comments=[...q.info];
+ const comments=specialPrint?q.info.filter(msg=>!msg.startsWith('Faixa de distância escolhida:')&&!msg.startsWith('Transferência RS0186 ·')):[...q.info];
+ if(specialPrint&&q.withTransfer)comments.push('Transferência RS0186 incluída na composição do frete.');
  if(q.icmsRate===null)comments.push('O ICMS não foi incluído: alíquota não informada.');
  else comments.push('ICMS estimado localmente com alíquota informada pelo usuário.');
  comments.push(...q.notes);
- comments.push('Documento gerado localmente com valores das tabelas fornecidas. Valores, prazo, enquadramento fiscal e disponibilidade sujeitos à validação pela Cotralti. Não constitui proposta comercial vinculante.');
- $('printSheet').classList.toggle('special-compact-print',q.km!==null);
- $('printSheet').innerHTML=`<header class="print-header"><img class="print-logo" src="${logoSrc}" alt="Cotralti Transportes"><div><h1>Cotralti Transportes</h1><p>FretePro · Demonstrativo de cotação de frete</p></div></header>
+ comments.push('Documento gerado localmente com valores das tabelas fornecidas. Valores, prazo, enquadramento fiscal e disponibilidade sujeitos à validação pela Cotralti.');
+ $('printSheet').classList.toggle('special-compact-print',specialPrint);
+ const printHeader=specialPrint?
+ `<header class="print-header special-header"><img class="print-logo" src="${logoSrc}" alt="Logo Cotralti"><div class="print-company-info"><h1>Cotralti - Cooperativa de Transportes e Logistica</h1><p>Rua Coronel Souza Franco - Vila Maluf - Suzano SP</p><p>CNPJ: 67.901.140/0001-01</p><p class="print-proposal-title">FretePro - Proposta de Frete</p></div></header>`:
+ `<header class="print-header"><img class="print-logo" src="${logoSrc}" alt="Cotralti Transportes"><div><h1>Cotralti Transportes</h1><p>FretePro · Demonstrativo de cotação de frete</p></div></header>`;
+ const printSignatures=specialPrint?`<section class="print-signatures" aria-label="Assinaturas da proposta"><div class="print-signature"><span>Assinatura 1</span></div><div class="print-signature"><span>Assinatura 2</span></div><div class="print-signature"><span>Assinatura 3</span></div></section>`:'';
+ $('printSheet').innerHTML=`${printHeader}
  <div class="print-meta"><span>Gerado em: ${esc(issue)} (Brasília)</span><span>Usuário: ${esc(state.user)}</span></div>
  <h2 class="print-section">01 · DADOS DA OPERAÇÃO</h2>
  <div class="print-detail-grid">${headerData.map(([k,v])=>pair(k,v)).join('')}</div>
@@ -528,11 +610,12 @@ function printQuote(){
  <div class="print-total-bar"><span>${q.icmsRate===null?'Total estimado (sem ICMS)':'Total estimado'}</span><strong>${money(q.total)}</strong></div>
  <h2 class="print-section">03 · CRITÉRIOS E OBSERVAÇÕES</h2>
  ${comments.map(msg=>`<p class="print-note">${esc(msg)}</p>`).join('')}
- <footer class="print-foot">FretePro · Cotralti Transportes · Documento de simulação de frete</footer>`;
+ ${printSignatures}
+ <footer class="print-foot">FretePro · Cotralti Transportes</footer>`;
  window.print();
 }
 function clearAll(){
- $('origin').value='';$('destInput').value='';$('weight').value='';$('nfe').value='';$('docQty').value='';$('icms').value='';$('km').value='';$('transferNo').checked=true;$('vehicle').value='auto';$('optional').open=false;state.selection=null;state.dedtype='vehicle';setMode('pack');emptyResult();
+ $('origin').value='';$('destInput').value='';$('specialOrigin').value='';$('specialDestination').value='';$('weight').value='';$('nfe').value='';$('docQty').value='';$('icms').value='';$('km').value='';$('transferNo').checked=true;$('vehicle').value='auto';$('optional').open=false;state.selection=null;state.dedtype='vehicle';setMode('pack');emptyResult();
 }
 function setTab(tab){
  if(!['quote','routes','conditions'].includes(tab))return;state.tab=tab;
@@ -611,6 +694,7 @@ function bind(){
  document.addEventListener('click',e=>{if(!e.target.closest('.autocomplete'))hideSuggestions()});
  for(const id of ['weight','nfe','docQty','icms'])$(id).addEventListener('input',calculate);
   $('km').addEventListener('change',calculate);
+  $('specialOrigin').addEventListener('input',calculate);$('specialDestination').addEventListener('input',calculate);
   document.querySelectorAll('input[name="transferSpecial"]').forEach(el=>el.addEventListener('change',calculate));
  $('vehicle').addEventListener('change',calculate);$('clearBtn').addEventListener('click',clearAll);
  $('routeOrigin').addEventListener('change',()=>renderRoutes(true));$('routeSearch').addEventListener('input',()=>renderRoutes(true));$('showMore').addEventListener('click',()=>{state.routeLimit+=24;renderRoutes(false)});
